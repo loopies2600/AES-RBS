@@ -1,0 +1,126 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://azagaya/MinimalUI.tres" type="Theme" id=1]
+[ext_resource path="res://scripts/monster_select_button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/monster_panel.gd" type="Script" id=3]
+[ext_resource path="res://textures/monster.png" type="Texture" id=4]
+[ext_resource path="res://textures/ui_arrow.png" type="Texture" id=5]
+[ext_resource path="res://textures/ui_exit.png" type="Texture" id=6]
+[ext_resource path="res://scripts/monster_panel_exit.gd" type="Script" id=7]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 4 )
+region = Rect2( 756, 1313, 216, 332 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 5 )
+region = Rect2( 11, 74, 58, 56 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 5 )
+region = Rect2( 12, 137, 58, 56 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 6 )
+region = Rect2( 3, 4, 55, 66 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 6 )
+region = Rect2( 68, 8, 55, 66 )
+
+[node name="MonsterSelectPanel" type="Panel"]
+margin_right = 424.0
+margin_bottom = 1152.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="0" parent="." instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 32.0
+margin_top = 56.0
+margin_right = 152.0
+margin_bottom = 184.0
+
+[node name="1" parent="." instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 200.0
+margin_top = 56.0
+margin_right = 320.0
+margin_bottom = 184.0
+icon = SubResource( 1 )
+
+[node name="2" parent="." instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 32.0
+margin_top = 280.0
+margin_right = 152.0
+margin_bottom = 408.0
+
+[node name="3" parent="." instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 200.0
+margin_top = 280.0
+margin_right = 320.0
+margin_bottom = 408.0
+
+[node name="4" parent="." instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 32.0
+margin_top = 504.0
+margin_right = 152.0
+margin_bottom = 632.0
+
+[node name="5" parent="." instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 200.0
+margin_top = 504.0
+margin_right = 320.0
+margin_bottom = 632.0
+
+[node name="6" parent="." instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 32.0
+margin_top = 728.0
+margin_right = 152.0
+margin_bottom = 856.0
+
+[node name="7" parent="." instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 200.0
+margin_top = 728.0
+margin_right = 320.0
+margin_bottom = 856.0
+
+[node name="8" parent="." instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 32.0
+margin_top = 952.0
+margin_right = 152.0
+margin_bottom = 1080.0
+
+[node name="Scroller" type="TextureButton" parent="."]
+margin_left = 352.0
+margin_top = 584.0
+margin_right = 410.0
+margin_bottom = 640.0
+rect_scale = Vector2( 1, -1 )
+texture_normal = SubResource( 2 )
+texture_pressed = SubResource( 3 )
+
+[node name="Exit" type="TextureButton" parent="."]
+margin_left = 352.0
+margin_top = 16.0
+margin_right = 410.0
+margin_bottom = 72.0
+texture_normal = SubResource( 4 )
+texture_pressed = SubResource( 5 )
+script = ExtResource( 7 )

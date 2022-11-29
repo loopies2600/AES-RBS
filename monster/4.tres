@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://monster/monster.gd" type="Script" id=1]
+[ext_resource path="res://textures/monster.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 871, 869, 296, 242 )
+
+[resource]
+script = ExtResource( 1 )
+name = "Michael"
+picture = SubResource( 1 )
+maxHp = 20
+atk = 10
+def = 1
+spd = 1
+picOffset = Vector2( 0, 32 )

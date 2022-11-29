@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://monster/monster.gd" type="Script" id=1]
+[ext_resource path="res://textures/monster.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 359, 1178, 315, 396 )
+
+[resource]
+script = ExtResource( 1 )
+name = "Shinzoe"
+picture = SubResource( 1 )
+maxHp = 8
+atk = 1
+def = 2
+spd = 3
+picOffset = Vector2( 0, -24 )

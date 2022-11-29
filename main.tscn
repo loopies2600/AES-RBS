@@ -1,0 +1,165 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://textures/field.jpeg" type="Texture" id=1]
+[ext_resource path="res://shaders/shadow.gdshader" type="Shader" id=2]
+[ext_resource path="res://scripts/main.gd" type="Script" id=3]
+[ext_resource path="res://scripts/btl_button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://textures/ui_core.png" type="Texture" id=5]
+[ext_resource path="res://scripts/switch_button.gd" type="Script" id=6]
+[ext_resource path="res://scripts/guard_button.gd" type="Script" id=7]
+[ext_resource path="res://scripts/attack_button.gd" type="Script" id=8]
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 0.431373, 0.337255, 0.6, 0.439216, 0.180392, 0.0156863, 0.294118, 0.435294 )
+
+[sub_resource type="GradientTexture2D" id=4]
+gradient = SubResource( 3 )
+width = 1024
+height = 300
+fill_from = Vector2( 0.441667, 0 )
+fill_to = Vector2( 0.708333, 0.743175 )
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/deform = Vector2( 1, 2 )
+shader_param/offset = Vector2( 112, 128 )
+shader_param/modulate = Color( 0, 0, 0, 0.501961 )
+shader_param/texture_size = Vector2( 1024, 600 )
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("CharacterViewport")
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 5 )
+region = Rect2( 827, 191, 163, 345 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 5 )
+region = Rect2( 548, 243, 208, 249 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 5 )
+region = Rect2( 201, 282, 315, 78 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 5 )
+region = Rect2( 201, 357, 315, 85 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "Flash"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Main" type="Node"]
+script = ExtResource( 3 )
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color( 0.8, 0.76, 0.792667, 1 )
+margin_right = 1024.0
+margin_bottom = 600.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BGDesat" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 288.0
+color = Color( 0.43416, 0.4266, 0.54, 0.501961 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BGGrad" type="TextureRect" parent="."]
+margin_top = 300.0
+margin_right = 1024.0
+margin_bottom = 600.0
+texture = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CharacterRenderer" type="Sprite" parent="."]
+material = SubResource( 1 )
+texture = SubResource( 2 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CharacterViewport" type="Viewport" parent="."]
+size = Vector2( 1024, 600 )
+transparent_bg = true
+usage = 0
+render_target_v_flip = true
+
+[node name="Player" type="Sprite" parent="CharacterViewport"]
+position = Vector2( 84, 244 )
+texture = SubResource( 6 )
+
+[node name="Rival" type="Sprite" parent="CharacterViewport"]
+position = Vector2( 929, 287 )
+texture = SubResource( 7 )
+flip_h = true
+
+[node name="Buttons" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="BattleButton" parent="Buttons" instance=ExtResource( 4 )]
+margin_left = 16.0
+margin_top = 456.0
+margin_right = 336.0
+margin_bottom = 584.0
+script = ExtResource( 6 )
+
+[node name="BattleButton2" parent="Buttons" instance=ExtResource( 4 )]
+margin_left = 352.0
+margin_top = 456.0
+margin_right = 672.0
+margin_bottom = 584.0
+icon = SubResource( 8 )
+script = ExtResource( 8 )
+
+[node name="BattleButton3" parent="Buttons" instance=ExtResource( 4 )]
+margin_left = 688.0
+margin_top = 456.0
+margin_right = 1008.0
+margin_bottom = 584.0
+icon = SubResource( 9 )
+script = ExtResource( 7 )
+
+[node name="Flash" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Flash"]
+autoplay = "Flash"
+anims/Flash = SubResource( 10 )
+anims/RESET = SubResource( 11 )

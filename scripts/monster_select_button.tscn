@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://azagaya/MinimalUI.tres" type="Theme" id=1]
+[ext_resource path="res://textures/monster.png" type="Texture" id=2]
+[ext_resource path="res://azagaya/OpenSans-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scripts/monster_select_button.gd" type="Script" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 756, 1313, 216, 332 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0761719, 0.0761719, 0.0761719, 1 )
+
+[node name="MonsterSelectButton" type="Button"]
+anchor_right = 0.156
+anchor_bottom = 0.347
+margin_left = 16.0
+margin_top = 40.0
+margin_right = -15.744
+margin_bottom = -40.2
+theme = ExtResource( 1 )
+icon = SubResource( 1 )
+icon_align = 1
+expand_icon = true
+script = ExtResource( 4 )
+
+[node name="Amount" type="Label" parent="."]
+anchor_top = -0.187
+anchor_right = 1.0
+anchor_bottom = 1.18
+margin_top = 151.936
+margin_bottom = -0.0400085
+custom_fonts/font = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+text = "x 0 "
+align = 1
+
+[node name="Name" type="Label" parent="."]
+anchor_top = -0.187
+anchor_right = 1.0
+margin_top = -0.0639992
+margin_bottom = -1.0
+custom_fonts/font = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+text = "FORESTROLL"
+align = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+anchor_left = -0.125
+anchor_top = -0.312
+anchor_right = 1.125
+anchor_bottom = 1.312
+margin_top = -0.0639992
+margin_bottom = 0.0639954
+mouse_filter = 2
+color = Color( 0.16, 0.16, 0.16, 1 )
