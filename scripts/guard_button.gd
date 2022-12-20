@@ -11,7 +11,7 @@ func _pressed():
 	
 	yield(get_tree().create_timer(Global.TURN_DELAY / 2), "timeout")
 	
-	Global.attack(opponent, player, player.res.def)
+	Global.attack(opponent, player, player.resource.Def)
 	
 	yield(get_tree().create_timer(Global.TURN_DELAY / 2), "timeout")
 	

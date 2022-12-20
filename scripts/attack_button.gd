@@ -8,7 +8,7 @@ func _pressed():
 	var player = get_tree().get_current_scene().playerMon
 	var opponent = get_tree().get_current_scene().opponentMon
 	
-	if player.res.spd > opponent.res.spd:
+	if player.resource.Spd > opponent.resource.Spd:
 		yield(_atkNdelay(player, opponent), "completed")
 		yield(_atkNdelay(opponent, player), "completed")
 	else:
@@ -17,7 +17,7 @@ func _pressed():
 		
 	get_tree().get_current_scene().monMenuOpen = false
 	
-func _atkNdelay(attacker : btl_monster, target : btl_monster):
+func _atkNdelay(attacker, target):
 	yield(get_tree().create_timer(Global.TURN_DELAY / 2), "timeout")
 	
 	Global.attack(attacker, target)

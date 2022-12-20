@@ -9,6 +9,7 @@
 [ext_resource path="res://scripts/monster_panel_exit.gd" type="Script" id=7]
 
 [sub_resource type="AtlasTexture" id=1]
+flags = 2
 atlas = ExtResource( 4 )
 region = Rect2( 756, 1313, 216, 332 )
 

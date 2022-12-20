@@ -1,18 +1,19 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
-[ext_resource path="res://monster/monster.gd" type="Script" id=1]
+[ext_resource path="res://monster/Monster.cs" type="Script" id=1]
 [ext_resource path="res://textures/monster.png" type="Texture" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
+flags = 2
 atlas = ExtResource( 2 )
-region = Rect2( 359, 1178, 315, 396 )
+region = Rect2( -4, 756, 349, 392 )
 
 [resource]
 script = ExtResource( 1 )
-name = "Shinzoe"
-picture = SubResource( 1 )
-maxHp = 8
-atk = 1
-def = 2
-spd = 3
-picOffset = Vector2( 0, -24 )
+Name = "Shinzoe"
+Sprite = SubResource( 1 )
+MaxHP = 8
+Atk = 1
+Def = 2
+Spd = 3
+SpriteOffset = Vector2( 0, -24 )

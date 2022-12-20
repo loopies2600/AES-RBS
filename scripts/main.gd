@@ -7,8 +7,8 @@ const BTLMON := preload("res://scripts/btl_monster.tscn")
 
 var monMenuOpen := false
 
-var playerMon : btl_monster
-var opponentMon : btl_monster
+var playerMon
+var opponentMon
 
 func _ready():
 	randomize()

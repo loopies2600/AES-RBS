@@ -1,18 +1,19 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
-[ext_resource path="res://monster/monster.gd" type="Script" id=1]
+[ext_resource path="res://monster/Monster.cs" type="Script" id=1]
 [ext_resource path="res://textures/monster.png" type="Texture" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
+flags = 2
 atlas = ExtResource( 2 )
-region = Rect2( 756, 1313, 216, 332 )
+region = Rect2( 1075, 0, 230, 333 )
 
 [resource]
 script = ExtResource( 1 )
-name = "Forestroller"
-picture = SubResource( 1 )
-maxHp = 10
-atk = 3
-def = 1
-spd = 4
-picOffset = Vector2( 0, 0 )
+Name = "Forestroller"
+Sprite = SubResource( 1 )
+MaxHP = 10
+Atk = 3
+Def = 1
+Spd = 4
+SpriteOffset = Vector2( 0, 0 )

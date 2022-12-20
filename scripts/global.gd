@@ -26,7 +26,7 @@ func playMusic():
 	bgm.stream = load("res://streams/battle.mp3")
 	bgm.play()
 	
-func attack(attacker : btl_monster, target : btl_monster, def := 0):
+func attack(attacker, target, def := 0):
 	if attacker.dead: return
 	
 	var particle = load("res://scripts/attack_anim.tscn").instance()
@@ -34,11 +34,11 @@ func attack(attacker : btl_monster, target : btl_monster, def := 0):
 	add_child(particle)
 	particle.position = target.position
 	
-	var hpCalc : int = target.hp - attacker.res.atk - def
+	var hpCalc : int = target.hp - attacker.resource.Atk - def
 	
 	if hpCalc <= 0:
 		target.hp = 0
-		target.kill()
+		target.Kill()
 		return
 	
-	target.hp -= (attacker.res.atk - def)
+	target.hp -= (attacker.resource.Atk - def)

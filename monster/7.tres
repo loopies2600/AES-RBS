@@ -1,18 +1,19 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
-[ext_resource path="res://monster/monster.gd" type="Script" id=1]
+[ext_resource path="res://monster/Monster.cs" type="Script" id=1]
 [ext_resource path="res://textures/monster.png" type="Texture" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
+flags = 2
 atlas = ExtResource( 2 )
-region = Rect2( 2703, 812, 575, 514 )
+region = Rect2( 749, 613, 583, 514 )
 
 [resource]
 script = ExtResource( 1 )
-name = "Lacy"
-picture = SubResource( 1 )
-maxHp = 20
-atk = 10
-def = 7
-spd = 4
-picOffset = Vector2( 0, -96 )
+Name = "Lacy"
+Sprite = SubResource( 1 )
+MaxHP = 20
+Atk = 10
+Def = 7
+Spd = 4
+SpriteOffset = Vector2( 0, -96 )
